@@ -27,15 +27,36 @@
         </div>
     </div>
 
-    <!-- Top Bar (Rating Google Selalu Muncul di HP) -->
+    <!-- Top Bar (Perbaikan 2 Baris Simetris & Rapi di HP) -->
     <div class="bg-slate-900 text-slate-300 text-xs py-2 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-2">
-            <div class="flex items-center gap-2 sm:gap-4 w-full sm:w-auto justify-between sm:justify-start">
-                <span><i class="fa-regular fa-clock text-cyan-400 mr-1"></i> Buka Setiap Hari: 09.00 - 21.00 WIB</span>
-                <span class="text-slate-600">|</span>
-                <span class="text-amber-400 font-semibold"><i class="fa-solid fa-star text-amber-400 mr-1"></i> 4.9/5.0 Google Review</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <!-- Sisi Kiri: Jam Buka -->
+            <div class="flex flex-col sm:flex-row sm:items-center sm:gap-2 leading-tight">
+                <span class="text-[11px] sm:text-xs font-semibold text-slate-200">
+                    <i class="fa-regular fa-clock text-cyan-400 mr-1"></i> Buka Setiap Hari
+                </span>
+                <span class="text-[10px] sm:text-xs text-slate-400 sm:text-slate-300">
+                    09.00 - 21.00 WIB
+                </span>
             </div>
-            <a href="#cabang" class="text-cyan-400 hover:text-cyan-300 font-medium hidden md:inline">7 Cabang Strategis Jabodetabek →</a>
+
+            <!-- Pembatas Tengah (Desktop Only) -->
+            <span class="hidden md:inline text-slate-700">|</span>
+
+            <!-- Teks Cabang (Desktop Only) -->
+            <a href="#cabang" class="text-cyan-400 hover:text-cyan-300 font-medium hidden md:inline">
+                7 Cabang Strategis Jabodetabek →
+            </a>
+
+            <!-- Sisi Kanan: Rating Google -->
+            <div class="flex flex-col sm:flex-row sm:items-center sm:gap-1 text-right leading-tight">
+                <span class="text-[11px] sm:text-xs font-bold text-amber-400">
+                    <i class="fa-solid fa-star mr-0.5"></i> 4.9/5.0 Rating
+                </span>
+                <span class="text-[10px] sm:text-xs text-slate-400 sm:text-slate-300">
+                    Google Review
+                </span>
+            </div>
         </div>
     </div>
 
@@ -182,7 +203,7 @@
         </div>
     </section>
 
-    <!-- SECTION GALERI FASILITAS KLINIK (6 FOTO PILIHAN TERBAIK - GRID 3x2) -->
+    <!-- SECTION GALERI FASILITAS KLINIK -->
     <section id="fasilitas" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
