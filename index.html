@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senyum Dental - Klinik Gigi & Estetika Specialist</title>
+    <title>Senyum Dental - Klinik Gigi & Estetika Spesialis</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -39,14 +39,14 @@
         </div>
     </div>
 
-    <!-- Header / Navbar -->
+    <!-- Header / Navbar (Diperbaiki agar teks tidak berantakan di HP) -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3">
-                <img src="logo-removebg-preview.png" alt="Logo Senyum Dental" class="h-12 w-auto object-contain" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/logo-removebg-preview.png'">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 sm:gap-3">
+                <img src="logo-removebg-preview.png" alt="Logo Senyum Dental" class="h-10 sm:h-12 w-auto object-contain shrink-0" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/logo-removebg-preview.png'">
                 <div>
-                    <span class="text-xl font-extrabold text-slate-900 tracking-tight block leading-none">SENYUM <span class="text-cyan-600">Dental</span></span>
-                    <span class="text-[10px] font-semibold text-slate-500 tracking-wider uppercase">Klinik Gigi & Estetika Specialist</span>
+                    <span class="text-base sm:text-xl font-extrabold text-slate-900 tracking-tight block leading-none">SENYUM <span class="text-cyan-600">Dental</span></span>
+                    <span class="text-[9px] sm:text-[10px] font-semibold text-slate-500 tracking-tight block mt-1 whitespace-nowrap">Klinik Gigi & Estetika Spesialis</span>
                 </div>
             </a>
 
@@ -59,7 +59,7 @@
             </nav>
 
             <div>
-                <a href="#reservasi" class="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-md shadow-cyan-600/20 transition-all inline-flex items-center gap-2">
+                <a href="#reservasi" class="bg-cyan-600 hover:bg-cyan-700 text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm shadow-md shadow-cyan-600/20 transition-all inline-flex items-center gap-1.5">
                     <i class="fa-solid fa-calendar-check"></i> Reservasi Cepat
                 </a>
             </div>
@@ -109,7 +109,7 @@
         </div>
     </section>
 
-    <!-- SECTION FORMULIR RESERVASI ONLINE SUPER SIMPEL (TANPA NAMA & TANPA NO WA) -->
+    <!-- SECTION FORMULIR RESERVASI ONLINE SUPER SIMPEL -->
     <section id="reservasi" class="py-12 bg-cyan-900/10 border-b border-cyan-100 -mt-6 relative z-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200">
@@ -470,7 +470,6 @@
 
     <!-- SCRIPT JAVASCRIPT -->
     <script>
-        // Script Reservasi Tanpa Nama & Tanpa No WA (Langsung Terbaca dari Nomor WA Pasien yang Masuk)
         function handleBooking(e) {
             e.preventDefault();
             const branchData = document.getElementById('book-branch').value.split('|');
@@ -486,7 +485,6 @@
             window.open(`https://wa.me/${waPhone}?text=${text}`, '_blank');
         }
 
-        // Script Pop-up Review Bintang 5 Dinamis
         const reviews = [
             { name: "Pak Bambang", branch: "Cabang Concordia" },
             { name: "Ibu Sri", branch: "Cabang Cibubur Country" },
