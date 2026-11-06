@@ -285,7 +285,7 @@
                     </div>
                 </div>
 
-                <!-- 2. Boulevard (Diperbarui mengarah langsung ke pin lokasi Senyum Dental Boulevard) -->
+                <!-- 2. Boulevard -->
                 <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white flex flex-col justify-between shadow-sm">
                     <div>
                         <div class="h-48 relative overflow-hidden">
@@ -414,11 +414,17 @@
         </div>
     </footer>
 
-    <!-- Script Pendukung Reservasi & Pop-up Review -->
+    <!-- Script Pendukung Reservasi & Pop-up Review (Murni Tanpa Simbol Bintang/Bold) -->
     <script>
         function handleBooking(event) {
             event.preventDefault();
-            const branchData = document.getElementById('book-branch').value.split('|');
+            const branchSelect = document.getElementById('book-branch').value;
+            if (!branchSelect) {
+                alert('Silakan pilih cabang klinik terlebih dahulu.');
+                return;
+            }
+
+            const branchData = branchSelect.split('|');
             const branchName = branchData[0];
             const phoneNum = branchData[1];
             const greeting = branchData[2];
@@ -426,8 +432,11 @@
             const date = document.getElementById('book-date').value;
             const time = document.getElementById('book-time').value;
 
-            const text = `${greeting},%0A%0ASaya ingin melakukan reservasi dengan detail berikut:%0A- Cabang: *${branchName}*%0A- Perawatan: *${service}*%0A- Tanggal: *${date}*%0A- Jam: *${time}*%0A%0AMohon konfirmasi ketersediaannya. Terima kasih!`;
-            window.open(`https://wa.me/${phoneNum}?text=${text}`, '_blank');
+            // Teks murni tanpa simbol bintang (*) agar tidak terpotong di WhatsApp Web / Laptop
+            const message = `${greeting},\n\nSaya ingin melakukan reservasi dengan detail berikut:\n- Cabang: ${branchName}\n- Perawatan: ${service}\n- Tanggal: ${date}\n- Jam: ${time}\n\nMohon konfirmasi ketersediaannya. Terima kasih!`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNum}?text=${encodedMessage}`, '_blank');
         }
 
         // Simulasi pop-up review dinamis
