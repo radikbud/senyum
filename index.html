@@ -11,7 +11,7 @@
     <meta property="og:url" content="https://senyumdental.id/">
     <meta property="og:title" content="Senyum Dental - Praktek Dokter Gigi - Umum & Spesialis">
     <meta property="og:description" content="Praktek Dokter Gigi - Umum & Spesialis dengan pelayanan 4 Pilar Utama: Nyaman, Profesional, Personal, dan Terjangkau.">
-    <meta property="og:image" content="https://senyumdental.id/concordia-neonbox-terbaru.jpeg">
+    <meta property="og:image" content="https://senyumdental.id/1amsterdamdepan.jpg">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -414,56 +414,4 @@
         </div>
     </footer>
 
-    <!-- Script Pendukung Reservasi & Pop-up Review -->
-    <script>
-        function handleBooking(event) {
-            event.preventDefault();
-            const branchSelect = document.getElementById('book-branch').value;
-            if (!branchSelect) {
-                alert('Silakan pilih cabang klinik terlebih dahulu.');
-                return;
-            }
-
-            const branchData = branchSelect.split('|');
-            const branchName = branchData[0];
-            const phoneNum = branchData[1];
-            const greeting = branchData[2];
-            const service = document.getElementById('book-service').value;
-            const date = document.getElementById('book-date').value;
-            const time = document.getElementById('book-time').value;
-
-            const message = `${greeting},\n\nSaya ingin melakukan reservasi dengan detail berikut:\n- Cabang: ${branchName}\n- Perawatan: ${service}\n- Tanggal: ${date}\n- Jam: ${time}\n\nMohon konfirmasi ketersediaannya. Terima kasih!`;
-            
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${phoneNum}?text=${encodedMessage}`, '_blank');
-        }
-
-        // Simulasi pop-up review dinamis
-        const reviews = [
-            { name: "Ibu Siti", branch: "Cabang Kota Wisata" },
-            { name: "Bapak Budi", branch: "Cabang Legenda Wisata" },
-            { name: "Kak Rina", branch: "Cabang CitraGran" },
-            { name: "Dokter & Keluarga", branch: "Cabang Cibubur Country" }
-        ];
-
-        let index = 0;
-        function showPopup() {
-            const popup = document.getElementById('review-popup');
-            const avatar = document.getElementById('popup-avatar');
-            const text = document.getElementById('popup-text');
-            
-            avatar.innerText = reviews[index].name.charAt(0);
-            text.innerText = `${reviews[index].name} memberi ulasan bintang 5 untuk ${reviews[index].branch}.`;
-
-            popup.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
-            setTimeout(() => {
-                popup.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
-            }, 4000);
-
-            index = (index + 1) % reviews.length;
-        }
-        setInterval(showPopup, 8000);
-        setTimeout(showPopup, 2000);
-    </script>
-</body>
-</html>
+    <!--
