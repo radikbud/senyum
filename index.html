@@ -98,7 +98,7 @@
                         Senyum Sehat & Memukau untuk <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">Keluarga Anda</span>
                     </h1>
                     <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
-                        Praktek dokter gigi profesional dengan pelayanan mengusung 4 Pilar Utama: <strong>Nyaman, Profesional, Personal, dan Terjangkau</strong> di berbagai cabang strategis Jabodetabek[cite: 1].
+                        Praktek dokter gigi profesional dengan pelayanan mengusung 4 Pilar Utama: <strong>Nyaman, Profesional, Personal, dan Terjangkau</strong> di berbagai cabang strategis Jabodetabek.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-2">
                         <a href="#reservasi" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-7 py-3.5 rounded-full shadow-lg shadow-cyan-500/30 transition-all inline-flex items-center gap-2">
@@ -200,7 +200,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 1. Ruang Konsultasi (Diperbaiki ke ruang-konsultasi.jpeg) -->
+                <!-- 1. Ruang Konsultasi -->
                 <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
                     <img src="ruang-konsultasi.jpeg" alt="Ruang Konsultasi Nyaman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/ruang-konsultasi.jpeg'">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
@@ -432,7 +432,6 @@
             const date = document.getElementById('book-date').value;
             const time = document.getElementById('book-time').value;
 
-            // Teks murni tanpa simbol bintang (*) agar tidak terpotong di WhatsApp Web / Laptop
             const message = `${greeting},\n\nSaya ingin melakukan reservasi dengan detail berikut:\n- Cabang: ${branchName}\n- Perawatan: ${service}\n- Tanggal: ${date}\n- Jam: ${time}\n\nMohon konfirmasi ketersediaannya. Terima kasih!`;
             
             const encodedMessage = encodeURIComponent(message);
