@@ -25,17 +25,6 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased relative">
 
-    <!-- POP-UP REVIEW BINTANG 5 DINAMIS (Pojok Kiri Bawah) -->
-    <div id="review-popup" class="fixed bottom-5 left-5 z-50 bg-white border border-slate-200 shadow-2xl rounded-2xl p-4 max-w-xs flex items-center gap-3.5 transition-all duration-500 opacity-0 translate-y-10 pointer-events-none">
-        <div class="w-10 h-10 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold text-base shrink-0" id="popup-avatar">B</div>
-        <div>
-            <div class="flex text-amber-400 text-xs">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="text-xs text-slate-800 font-semibold leading-tight mt-0.5" id="popup-text">Pak Bambang memberi ulasan bintang 5 untuk Cabang Concordia.</p>
-        </div>
-    </div>
-
     <!-- Top Bar -->
     <div class="bg-slate-900 text-slate-300 text-xs py-2 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -138,7 +127,6 @@
                     <p class="text-slate-600 text-xs sm:text-sm mt-1">Pilih cabang, jenis perawatan, tanggal, dan jam lalu langsung terhubung ke WhatsApp.</p>
                 </div>
 
-                <!-- FORM DENGAN JALUR EKSEKUSI LANGSUNG (ANTI DEAD BUTTON) -->
                 <form id="booking-form" onsubmit="handleBooking(event)" class="space-y-4">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
@@ -201,7 +189,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 1. Ruang Konsultasi -->
                 <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
                     <img src="ruang-konsultasi.jpeg" alt="Ruang Konsultasi Nyaman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/ruang-konsultasi.jpeg'">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
@@ -210,7 +197,6 @@
                     </div>
                 </div>
 
-                <!-- 2. Ruang Tindakan Dental Unit -->
                 <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
                     <img src="galeri-dental-merah.jpeg" alt="Ruang Tindakan Dental Unit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/galeri-dental-merah.jpeg'">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
@@ -219,7 +205,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Medical Sterilizer -->
                 <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
                     <img src="galeri-sterilisasi.jpeg" alt="Medical Sterilizer Alat Kesehatan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/galeri-sterilisasi.jpeg'">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
@@ -228,7 +213,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Sofa Elegan -->
                 <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
                     <img src="galeri-sofa.jpeg" alt="Ruang Tunggu Nyaman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/galeri-sofa.jpeg'">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
@@ -237,7 +221,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Kids Corner -->
                 <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
                     <img src="galeri-kids.jpeg" alt="Area Bermain Anak Kids Corner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/galeri-kids.jpeg'">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
@@ -246,7 +229,6 @@
                     </div>
                 </div>
 
-                <!-- 6. Outdoor Area -->
                 <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
                     <img src="galeri-outdoor.jpeg" alt="Taman Teras Outdoor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/galeri-outdoor.jpeg'">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
@@ -268,38 +250,46 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Artis 1 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 p-6 flex items-center gap-4">
-                    <img src="artis1.jpg" alt="Public Figure" class="w-16 h-16 rounded-full object-cover shrink-0 border-2 border-cyan-500" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/logo-removebg-preview.png'">
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-base">Sahabat Senyum Dental</h4>
-                        <p class="text-xs text-slate-500 mt-0.5">Perawatan rutin & estetika gigi</p>
-                        <span class="inline-block mt-2 text-[10px] font-bold text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded-full">Artis & Musisi</span>
+                <!-- 1. Meriam Bellina -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
+                    <div class="flex items-center gap-4">
+                        <img src="9meriambellina.jpeg" alt="Meriam Bellina" class="w-16 h-16 rounded-full object-cover shrink-0 border-2 border-cyan-500" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/logo-removebg-preview.png'">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base">Meriam Bellina</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">Perawatan gigi keluarga</p>
+                            <span class="inline-block mt-2 text-[10px] font-bold text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded-full">Senior Artis / Legendaris</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Artis 2 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 p-6 flex items-center gap-4">
-                    <img src="artis2.jpg" alt="Public Figure" class="w-16 h-16 rounded-full object-cover shrink-0 border-2 border-cyan-500" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/logo-removebg-preview.png'">
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-base">Pelanggan Setia</h4>
-                        <p class="text-xs text-slate-500 mt-0.5">Kenyamanan & hasil memuaskan</p>
-                        <span class="inline-block mt-2 text-[10px] font-bold text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded-full">Influencer / Creator</span>
+
+                <!-- 2. Faby Marcelia -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
+                    <div class="flex items-center gap-4">
+                        <img src="6FabyMarcelia.JPG" alt="Faby Marcelia" class="w-16 h-16 rounded-full object-cover shrink-0 border-2 border-cyan-500" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/logo-removebg-preview.png'">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base">Faby Marcelia</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">Perawatan rutin & estetika gigi</p>
+                            <span class="inline-block mt-2 text-[10px] font-bold text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded-full">Artis & Selebriti</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Artis 3 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 p-6 flex items-center gap-4">
-                    <img src="artis3.jpg" alt="Public Figure" class="w-16 h-16 rounded-full object-cover shrink-0 border-2 border-cyan-500" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/logo-removebg-preview.png'">
-                    <div>
-                        <h4 class="font-bold text-slate-900 text-base">Keluarga Selebriti</h4>
-                        <p class="text-xs text-slate-500 mt-0.5">Perawatan gigi keluarga</p>
-                        <span class="inline-block mt-2 text-[10px] font-bold text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded-full">Public Figure</span>
+
+                <!-- 3. Livy Andriany -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
+                    <div class="flex items-center gap-4">
+                        <img src="8LivyAndriany.JPG" alt="Livy Andriany" class="w-16 h-16 rounded-full object-cover shrink-0 border-2 border-cyan-500" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/logo-removebg-preview.png'">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base">Livy Andriany</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">Kenyamanan & hasil memuaskan</p>
+                            <span class="inline-block mt-2 text-[10px] font-bold text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded-full">Artis & Publik Figur</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Jaringan Klinik -->
+    <!-- Section Jaringan Klinik & Kotak Kritik/Saran + Kotak Instagram (Sejajar dalam Grid) -->
     <section id="cabang" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -435,11 +425,48 @@
                         <a href="https://wa.me/6282213162085?text=Halo%20Admin%20Sahabat%20Dental,%20saya%20ingin%20reservasi" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-lg"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
                     </div>
                 </div>
+
+                <!-- 8. Kotak Kritik & Saran (Di sebelah Sahabat Dental) -->
+                <div class="border border-cyan-300 rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-950 to-slate-900 text-white flex flex-col justify-between shadow-lg p-6">
+                    <div>
+                        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 uppercase bg-cyan-900/60 px-2.5 py-1 rounded-full border border-cyan-500/30 mb-4">
+                            <i class="fa-solid fa-comments"></i> Suara Anda Berharga
+                        </div>
+                        <h3 class="text-lg font-extrabold text-white">Kritik & Saran</h3>
+                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                            Punya masukan, saran, atau kendala selama perawatan? Sampaikan langsung kepada manajemen kami.
+                        </p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://wa.me/628123456789?text=Halo%20Manajemen%20Senyum%20Dental,%20saya%20ingin%20memberikan%20kritik%20dan%20saran:" target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Kirim Kritik & Saran via WA
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 9. Kotak Instagram @senyumdental (Ditempatkan SETELAH Kotak Kritik & Saran) -->
+                <div class="border border-pink-500/30 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 text-white flex flex-col justify-between shadow-lg p-6">
+                    <div>
+                        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-pink-300 uppercase bg-pink-950/60 px-2.5 py-1 rounded-full border border-pink-500/30 mb-4">
+                            <i class="fa-brands fa-instagram"></i> Sosial Media Resmi
+                        </div>
+                        <h3 class="text-lg font-extrabold text-white">Instagram @senyumdental</h3>
+                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                            Follow akun Instagram kami untuk melihat tips kesehatan gigi, galeri senyum pasien, dan update promo menarik setiap hari.
+                        </p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://instagram.com/senyumdental" target="_blank" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-amber-500 text-white font-extrabold text-xs py-3 px-4 rounded-xl shadow-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-instagram text-base"></i> Follow IG @senyumdental
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (Bersih, tanpa tombol IG lagi) -->
     <footer class="bg-slate-950 text-white py-12 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
             <div>
@@ -450,7 +477,18 @@
         </div>
     </footer>
 
-    <!-- SCRIPT JAVASCRIPT DINAMIS & ANTI-DEAD-BUTTON -->
+    <!-- POP-UP REVIEW BINTANG 5 DINAMIS (DILETAKKAN DI PALING BAWAH HALAMAN) -->
+    <div id="review-popup" class="fixed bottom-5 left-5 z-50 bg-white border border-slate-200 shadow-2xl rounded-2xl p-4 max-w-xs flex items-center gap-3.5 transition-all duration-700 opacity-0 translate-y-10 pointer-events-none">
+        <div class="w-10 h-10 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold text-base shrink-0" id="popup-avatar">R</div>
+        <div>
+            <div class="flex text-amber-400 text-xs">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs text-slate-800 font-semibold leading-tight mt-0.5" id="popup-text">Kak Rina baru saja memberi bintang 5 di Senyum Dental Concordia.</p>
+        </div>
+    </div>
+
+    <!-- SCRIPT JAVASCRIPT -->
     <script>
         function handleBooking(event) {
             if (event) event.preventDefault();
@@ -465,13 +503,11 @@
                 return;
             }
 
-            // Pecah string data dari value option (Nama Cabang|Nomor WA|Salam)
             const parts = branchSelect.split('|');
             const branchName = parts[0];
             const phoneNumber = parts[1];
             const greeting = parts[2];
 
-            // Susun pesan WhatsApp
             const message = `${greeting},\n\n` +
                             `Saya ingin melakukan reservasi online:\n` +
                             `• Cabang: ${branchName}\n` +
@@ -480,21 +516,60 @@
                             `• Waktu: ${time}\n\n` +
                             `Mohon konfirmasi ketersediaannya. Terima kasih!`;
 
-            // URL Universal WhatsApp yang dijamin tembus di HP, Tablet, dan iPad manapun tanpa Dead Button
             const waUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-
-            // Eksekusi langsung buka WhatsApp
             window.location.href = waUrl;
         }
 
-        // Set otomatis tanggal minimal hari ini pada input tanggal
+        // Data ulasan merata ke seluruh 7 cabang
+        const reviews = [
+            { name: "Kak Rina", text: "Kak Rina baru saja memberi bintang 5 di Senyum Dental Concordia." },
+            { name: "Pak Budi", text: "Pak Budi baru saja memberi bintang 5 di Senyum Dental Boulevard." },
+            { name: "dino77", text: "dino77 baru saja memberi bintang 5 di Senyum Dental Citragran." },
+            { name: "Bu Sri", text: "Bu Sri baru saja memberi bintang 5 di Senyum Dental Legenda." },
+            { name: "rachel_utk", text: "rachel_utk baru saja memberi bintang 5 di Senyum Dental Country." },
+            { name: "Andi Pratama", text: "Andi Pratama baru saja memberi bintang 5 di Estetika Dental ( Esdent )." },
+            { name: "Siti Rahma", text: "Siti Rahma baru saja memberi bintang 5 di Sahabat Dental ( Sadent )." },
+            { name: "Reza Artamevia", text: "Reza Artamevia baru saja memberi bintang 5 di Senyum Dental Concordia." },
+            { name: "Doni Setiawan", text: "Doni Setiawan baru saja memberi bintang 5 di Senyum Dental Boulevard." },
+            { name: "Maya Lestari", text: "Maya Lestari baru saja memberi bintang 5 di Senyum Dental Citragran." },
+            { name: "Hendra Wijaya", text: "Hendra Wijaya baru saja memberi bintang 5 di Senyum Dental Legenda." },
+            { name: "Dewi Sartika", text: "Dewi Sartika baru saja memberi bintang 5 di Senyum Dental Country." },
+            { name: "Fajar Nugraha", text: "Fajar Nugraha baru saja memberi bintang 5 di Estetika Dental ( Esdent )." },
+            { name: "Putri Anggraini", text: "Putri Anggraini baru saja memberi bintang 5 di Sahabat Dental ( Sadent )." }
+        ];
+
+        let reviewIndex = 0;
+        function showReviewPopup() {
+            const popup = document.getElementById('review-popup');
+            const avatar = document.getElementById('popup-avatar');
+            const text = document.getElementById('popup-text');
+
+            const current = reviews[reviewIndex];
+            avatar.textContent = current.name.charAt(0).toUpperCase();
+            text.textContent = `${current.text}`;
+
+            popup.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+            popup.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                popup.classList.remove('opacity-100', 'translate-y-0');
+                popup.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+            }, 4000);
+
+            reviewIndex = (reviewIndex + 1) % reviews.length;
+        }
+
         window.onload = function() {
+            // Mengatur nilai awal tanggal reservasi ke hari ini dan minimal hari ini (mengikuti hari)
             const today = new Date().toISOString().split('T')[0];
             const dateInput = document.getElementById('book-date');
             if (dateInput) {
                 dateInput.value = today;
                 dateInput.min = today;
             }
+
+            setTimeout(showReviewPopup, 3000);
+            setInterval(showReviewPopup, 8000);
         };
     </script>
 </body>
