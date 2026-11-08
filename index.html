@@ -1,276 +1,456 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENYUM Dental - Praktik Dokter Gigi - Umum & Spesialis</title>
+    <title>Senyum Dental - Praktek Dokter Gigi - Umum & Spesialis</title>
+
+    <!-- META TAGS OPEN GRAPH UNTUK WHATSAPP / SOSIAL MEDIA -->
+    <meta name="description" content="Praktek Dokter Gigi - Umum & Spesialis di berbagai cabang strategis Jabodetabek.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://senyumdental.id/">
+    <meta property="og:title" content="Senyum Dental - Praktek Dokter Gigi - Umum & Spesialis">
+    <meta property="og:description" content="Praktek Dokter Gigi - Umum & Spesialis dengan pelayanan 4 Pilar Utama: Nyaman, Profesional, Personal, dan Terjangkau.">
+    <meta property="og:image" content="https://senyumdental.id/1amsterdamdepan.jpg">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            teal: '#0E7A8D',
-                            dark: '#0F172A',
-                            accent: '#38BDF8'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Montserrat', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0F172A; }
-        ::-webkit-scrollbar-thumb { background: #0E7A8D; border-radius: 4px; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans selection:bg-teal-500 selection:text-white pb-20 md:pb-0">
+<body class="bg-slate-50 text-slate-800 antialiased relative">
 
-    <!-- ANNOUNCEMENT BAR (BETA NOTICE) -->
-    <div class="bg-gradient-to-r from-teal-700 via-sky-600 to-teal-700 text-white py-2 px-4 text-center text-xs md:text-sm font-extrabold uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg">
-        <i class="fa-solid fa-triangle-exclamation text-yellow-300"></i>
-        <span>SISTEM RESERVASI ONLINE DALAM TAHAP PENGEMBANGAN (BETA) - KENDALA TEKNIS SEPENUHNYA TELAH DIPERBAIKI</span>
+    <!-- POP-UP REVIEW BINTANG 5 DINAMIS (Pojok Kiri Bawah) -->
+    <div id="review-popup" class="fixed bottom-5 left-5 z-50 bg-white border border-slate-200 shadow-2xl rounded-2xl p-4 max-w-xs flex items-center gap-3.5 transition-all duration-500 opacity-0 translate-y-10 pointer-events-none">
+        <div class="w-10 h-10 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold text-base shrink-0" id="popup-avatar">B</div>
+        <div>
+            <div class="flex text-amber-400 text-xs">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs text-slate-800 font-semibold leading-tight mt-0.5" id="popup-text">Pak Bambang memberi ulasan bintang 5 untuk Cabang Concordia.</p>
+        </div>
     </div>
 
-    <!-- NAVBAR -->
-    <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="bg-gradient-to-r from-teal-600 to-sky-600 text-white font-black px-3.5 py-1.5 rounded-xl text-lg font-heading shadow-md">
-                    SENYUM <span class="text-yellow-300">Dental</span>
-                </div>
-                <span class="hidden md:inline-block bg-slate-800 text-slate-300 border border-slate-700 text-xs font-bold px-3 py-1 rounded-full">
-                    <i class="fa-solid fa-stethoscope text-teal-400 mr-1.5"></i> Praktik Dokter Gigi - Umum & Spesialis
+    <!-- Top Bar -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:gap-2 leading-tight">
+                <span class="text-[11px] sm:text-xs font-semibold text-slate-200">
+                    <i class="fa-regular fa-clock text-cyan-400 mr-1"></i> Buka Setiap Hari
+                </span>
+                <span class="text-[10px] sm:text-xs text-slate-400 sm:text-slate-300">
+                    09.00 - 21.00 WIB
                 </span>
             </div>
-
-            <a href="#reservation-section" class="bg-gradient-to-r from-teal-600 to-sky-600 hover:from-teal-700 hover:to-sky-700 text-white px-4 py-2 rounded-xl font-extrabold text-xs sm:text-sm shadow-md transition flex items-center gap-2">
-                <i class="fa-solid fa-calendar-check"></i>
-                <span>Reservasi Cepat</span>
+            <span class="hidden md:inline text-slate-700">|</span>
+            <a href="#cabang" class="text-cyan-400 hover:text-cyan-300 font-medium hidden md:inline">
+                Senyum dental selalu di dekat pelanggan →
             </a>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:gap-1 text-right leading-tight">
+                <span class="text-[11px] sm:text-xs font-bold text-amber-400">
+                    <i class="fa-solid fa-star mr-0.5"></i> 4.9/5.0 Rating
+                </span>
+                <span class="text-[10px] sm:text-xs text-slate-400 sm:text-slate-300">
+                    Google Review
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 sm:gap-3">
+                <img src="logo-removebg-preview.png" alt="Logo Senyum Dental" class="h-10 sm:h-12 w-auto object-contain shrink-0" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/logo-removebg-preview.png'">
+                <div>
+                    <span class="text-base sm:text-xl font-extrabold text-slate-900 tracking-tight block leading-none">SENYUM <span class="text-cyan-600">Dental</span></span>
+                    <span class="text-[9px] sm:text-[10px] font-semibold text-slate-500 tracking-tight block mt-1 whitespace-nowrap">Praktek Dokter Gigi - Umum & Spesialis</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-sm text-slate-600">
+                <a href="#reservasi" class="hover:text-cyan-600 transition-colors">Reservasi Online</a>
+                <a href="#fasilitas" class="hover:text-cyan-600 transition-colors">Galeri Fasilitas</a>
+                <a href="#artis" class="hover:text-cyan-600 transition-colors">Public Figure</a>
+                <a href="#cabang" class="hover:text-cyan-600 transition-colors">Jaringan Klinik</a>
+            </nav>
+            <div>
+                <a href="#reservasi" class="bg-cyan-600 hover:bg-cyan-700 text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm shadow-md shadow-cyan-600/20 transition-all inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-calendar-check"></i> Reservasi Cepat
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="relative pt-12 pb-16 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 border-b border-slate-800 overflow-hidden">
-        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
-            <div class="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 text-teal-400 font-extrabold px-4 py-1.5 rounded-full text-xs sm:text-sm mb-4 uppercase tracking-wider">
-                <i class="fa-solid fa-bolt"></i> BOOKING TANPA RIBET - TERHUBUNG LANGSUNG KE KLINIK
-            </div>
-            
-            <h1 class="text-3xl sm:text-5xl font-black font-heading text-white leading-tight mb-4">
-                Reservasi Online & Profil <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-sky-400 to-blue-500">
-                    Klinik Senyum Dental Legenda Wisata
-                </span>
-            </h1>
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-shield-halved"></i> Praktek Dokter Gigi Modern & Terpercaya
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
+                        Senyum Sehat & Memukau untuk <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">Keluarga Anda</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        Praktek dokter gigi profesional dengan pelayanan mengusung 4 Pilar Utama: <strong>Nyaman, Profesional, Personal, dan Terjangkau</strong> di berbagai cabang strategis Jabodetabek.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#reservasi" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-7 py-3.5 rounded-full shadow-lg shadow-cyan-500/30 transition-all inline-flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-plus"></i> Reservasi Online Sekarang
+                        </a>
+                        <a href="#cabang" class="border border-slate-600 hover:border-slate-400 text-white font-semibold px-7 py-3.5 rounded-full transition-all inline-flex items-center gap-2">
+                            <i class="fa-solid fa-hospital"></i> Lihat Jaringan Klinik Kami
+                        </a>
+                    </div>
+                </div>
 
-            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-                Pilih cabang, jenis perawatan, tanggal, dan jam kunjungan Anda. Langsung terhubung ke WhatsApp admin klinik.
-            </p>
+                <!-- Banner Header -->
+                <div class="relative overflow-hidden rounded-3xl shadow-2xl border border-white/10 group">
+                    <img src="konsultasi-personal.jpeg" alt="Ruang Perawatan & Konsultasi Senyum Dental" class="w-full h-80 sm:h-96 object-cover" onerror="this.src='konsultasi-personal.jpeg'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-6">
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-semibold pt-2 border-t border-white/20">
+                            <div class="bg-white/10 backdrop-blur-sm py-1.5 rounded-lg">✨ Nyaman</div>
+                            <div class="bg-white/10 backdrop-blur-sm py-1.5 rounded-lg">👨‍⚕️ Profesional</div>
+                            <div class="bg-white/10 backdrop-blur-sm py-1.5 rounded-lg">🤝 Personal</div>
+                            <div class="bg-white/10 backdrop-blur-sm py-1.5 rounded-lg">🏷️ Terjangkau</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- MAIN CONTAINER (FORM + GALERI & LOKASI) -->
-    <main class="max-w-6xl mx-auto px-4 py-10 space-y-12">
-        
-        <!-- FORM RESERVASI UTAMA -->
-        <section id="reservation-section" class="max-w-3xl mx-auto">
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
-                <div class="text-center mb-6">
-                    <h2 class="text-2xl font-black font-heading text-white mb-1">Formulir Janji Temu</h2>
-                    <p class="text-xs text-slate-400">Silakan lengkapi data kunjungan Anda di bawah ini</p>
+    <!-- SECTION FORMULIR RESERVASI ONLINE -->
+    <section id="reservasi" class="py-12 bg-cyan-900/10 border-b border-cyan-100 -mt-6 relative z-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200">
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <span class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-700 uppercase bg-cyan-50 px-3 py-1 rounded-full border border-cyan-200">
+                        <i class="fa-solid fa-bolt"></i> Booking Tanpa Ribet (Anti-Dead-Button)
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Reservasi Online</h2>
+                    <p class="text-slate-600 text-xs sm:text-sm mt-1">Pilih cabang, jenis perawatan, tanggal, dan jam lalu langsung terhubung ke WhatsApp.</p>
                 </div>
-                
-                <!-- FORM DENGAN EVENT HANDLER ANTI-DEAD-BUTTON -->
-                <form id="booking-form" onsubmit="sendBookingToWhatsApp(event)" class="space-y-6">
-                    
-                    <!-- PILIH CABANG -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-hospital text-teal-400"></i> Pilih Cabang Klinik *
-                        </label>
-                        <select id="branch-select" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-teal-500">
-                            <option value="Senyum Dental Legenda Wisata">1. Senyum Dental Legenda Wisata</option>
-                            <option value="Senyum Dental Cibubur">2. Senyum Dental Cibubur</option>
-                            <option value="Senyum Dental Citragran">3. Senyum Dental Citragran</option>
-                        </select>
-                    </div>
 
-                    <!-- JENIS PERAWATAN -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-tooth text-teal-400"></i> Jenis Perawatan *
-                        </label>
-                        <select id="service-select" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-teal-500">
-                            <option value="Pemeriksaan & Konsultasi Gigi">Pemeriksaan & Konsultasi Gigi</option>
-                            <option value="Scaling / Pembersihan Karang Gigi">Scaling / Pembersihan Karang Gigi</option>
-                            <option value="Penambalan Gigi">Penambalan Gigi</option>
-                            <option value="Pencabutan Gigi">Pencabutan Gigi</option>
-                            <option value="Perawatan Saluran Akar (PSA)">Perawatan Saluran Akar (PSA)</option>
-                            <option value="Ortodonsi / Behel Gigi">Ortodonsi / Behel Gigi</option>
-                            <option value="Bleaching / Pemutihan Gigi">Bleaching / Pemutihan Gigi</option>
-                        </select>
+                <!-- FORM DENGAN JALUR EKSEKUSI LANGSUNG (ANTI DEAD BUTTON) -->
+                <form id="booking-form" onsubmit="handleBooking(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1"><i class="fa-solid fa-hospital text-cyan-600 mr-1"></i> Pilih Cabang Klinik</label>
+                            <select id="book-branch" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
+                                <option value="" disabled selected>-- Pilih Lokasi Cabang --</option>
+                                <option value="Senyum Dental Concordia|6281297131640|Halo Admin Senyum Dental Concordia">1. Senyum Dental Concordia</option>
+                                <option value="Senyum Dental Boulevard|6281297131604|Halo Admin Senyum Dental Boulevard">2. Senyum Dental Boulevard</option>
+                                <option value="Senyum Dental Citragran|6281314629790|Halo Admin Senyum Dental Citragran">3. Senyum Dental Citragran</option>
+                                <option value="Senyum Dental Legenda|628138896913|Halo Admin Senyum Dental Legenda">4. Senyum Dental Legenda</option>
+                                <option value="Senyum Dental Country|6281281826781|Halo Admin Senyum Dental Country">5. Senyum Dental Country</option>
+                                <option value="Estetika Dental ( Esdent )|6282298821415|Halo Admin Estetika Dental">6. Estetika Dental ( Esdent )</option>
+                                <option value="Sahabat Dental ( Sadent )|6282213162085|Halo Admin Sahabat Dental">7. Sahabat Dental ( Sadent )</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1"><i class="fa-solid fa-tooth text-cyan-600 mr-1"></i> Jenis Perawatan</label>
+                            <select id="book-service" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
+                                <option value="Pemeriksaan & Konsultasi Gigi">Pemeriksaan & Konsultasi Gigi</option>
+                                <option value="Scaling / Pembersihan Karang Gigi">Scaling / Pembersihan Karang Gigi</option>
+                                <option value="Tambal Gigi / Estetika">Tambal Gigi / Estetika</option>
+                                <option value="Perawatan Saluran Akar">Perawatan Saluran Akar</option>
+                                <option value="Gigi Tiruan / Gigi Palsu">Gigi Tiruan (Gigi Palsu)</option>
+                                <option value="Cabut Gigi / Bedah Mulut">Cabut Gigi / Bedah Mulut</option>
+                                <option value="Behel / Ortodonti">Pemasangan Behel / Perawatan Rutin</option>
+                                <option value="Bleaching / Pemutihan Gigi">Bleaching (Pemutihan Gigi)</option>
+                                <option value="Perawatan Gigi Anak">Perawatan Gigi Anak</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1"><i class="fa-regular fa-calendar text-cyan-600 mr-1"></i> Rencana Tanggal</label>
+                            <input type="date" id="book-date" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1"><i class="fa-regular fa-clock text-cyan-600 mr-1"></i> Jam Kunjungan</label>
+                            <select id="book-time" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
+                                <option value="Pagi (09.00 - 12.00 WIB)">Sesi Pagi (09.00 - 12.00 WIB)</option>
+                                <option value="Siang (13.00 - 16.00 WIB)">Sesi Siang (13.00 - 16.00 WIB)</option>
+                                <option value="Sore / Malam (16.00 - 20.00 WIB)">Sesi Sore / Malam (16.00 - 20.00 WIB)</option>
+                            </select>
+                        </div>
                     </div>
-
-                    <!-- RENCANA TANGGAL -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-calendar-days text-teal-400"></i> Rencana Tanggal Kunjungan *
-                        </label>
-                        <input type="date" id="booking-date" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-teal-500">
+                    <div class="pt-3">
+                        <button type="submit" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold text-sm py-4 px-6 rounded-xl shadow-lg shadow-cyan-600/30 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Kirim Jadwal ke WhatsApp Klinik
+                        </button>
                     </div>
-
-                    <!-- JAM KUNJUNGAN -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-clock text-teal-400"></i> Jam Kunjungan *
-                        </label>
-                        <select id="booking-time" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-teal-500">
-                            <option value="Sesi Pagi (09.00 - 12.00 WIB)">Sesi Pagi (09.00 - 12.00 WIB)</option>
-                            <option value="Sesi Siang (13.00 - 16.00 WIB)">Sesi Siang (13.00 - 16.00 WIB)</option>
-                            <option value="Sesi Sore/Malam (16.30 - 20.00 WIB)">Sesi Sore/Malam (16.30 - 20.00 WIB)</option>
-                        </select>
-                    </div>
-
-                    <!-- TOMBOL EKSEKUSI UTAMA -->
-                    <button type="submit" class="w-full bg-gradient-to-r from-teal-600 to-sky-600 hover:from-teal-700 hover:to-sky-700 text-white font-extrabold py-4 px-6 rounded-2xl shadow-xl transition-all duration-300 transform hover:scale-[1.01] flex items-center justify-center gap-3 text-base">
-                        <i class="fa-brands fa-whatsapp text-2xl text-white"></i>
-                        <span>Kirim Jadwal ke WhatsApp Klinik</span>
-                    </button>
                 </form>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- GALERI FOTO & FASILITAS KLINIK -->
-        <section class="space-y-6">
-            <div class="text-center">
-                <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">Suasana & Fasilitas Klinik</h2>
-                <p class="text-xs sm:text-sm text-slate-400">kenyamanan pasien adalah prioritas utama kami</p>
+    <!-- SECTION GALERI FASILITAS KLINIK -->
+    <section id="fasilitas" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-cyan-600 tracking-widest uppercase">Standar Pelayanan</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Galeri Fasilitas & Kenyamanan Klinik</h2>
+                <p class="text-slate-600 text-sm mt-2">Menghadirkan ruangan konsultasi yang nyaman, sterilisasi ketat, serta suasana klinik yang bersih.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Foto 1 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-lg group">
-                    <div class="h-48 overflow-hidden">
-                        <img src="legenda-wisata-depan.jpeg" alt="Gedung Klinik Senyum Dental" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-white text-sm">Gedung & Area Parkir Utama</h3>
-                        <p class="text-xs text-slate-400 mt-1">Akses mudah dan nyaman di kawasan strategis.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1. Ruang Konsultasi -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
+                    <img src="ruang-konsultasi.jpeg" alt="Ruang Konsultasi Nyaman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/ruang-konsultasi.jpeg'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-cyan-300"><i class="fa-solid fa-comments mr-1"></i> Ruang Konsultasi</span>
+                        <h4 class="text-sm font-semibold mt-0.5">Ruang Diskusi & Pemeriksaan Privat</h4>
                     </div>
                 </div>
 
-                <!-- Foto 2 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-lg group">
-                    <div class="h-48 overflow-hidden">
-                        <img src="ruang-konsultasi.jpeg" alt="Ruang Konsultasi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-white text-sm">Ruang Konsultasi Higienis</h3>
-                        <p class="text-xs text-slate-400 mt-1">Peralatan medis modern berstandar sterilisasi tinggi.</p>
+                <!-- 2. Ruang Tindakan Dental Unit -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
+                    <img src="galeri-dental-merah.jpeg" alt="Ruang Tindakan Dental Unit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/galeri-dental-merah.jpeg'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-cyan-300"><i class="fa-solid fa-chair mr-1"></i> Ruang Tindakan</span>
+                        <h4 class="text-sm font-semibold mt-0.5">Dental Unit Ergonomis & Nyaman</h4>
                     </div>
                 </div>
 
-                <!-- Foto 3 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-lg group">
-                    <div class="h-48 overflow-hidden">
-                        <img src="country-ruang-tunggu.jpeg" alt="Ruang Tunggu Nyaman" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <!-- 3. Medical Sterilizer -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
+                    <img src="galeri-sterilisasi.jpeg" alt="Medical Sterilizer Alat Kesehatan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/galeri-sterilisasi.jpeg'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-cyan-300"><i class="fa-solid fa-shield-halved mr-1"></i> Sterilisasi Alat</span>
+                        <h4 class="text-sm font-semibold mt-0.5">Standar Higienis Kemenkes RI</h4>
                     </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-white text-sm">Ruang Tunggu Eksklusif</h3>
-                        <p class="text-xs text-slate-400 mt-1">Dilengkapi AC dan ruang tunggu yang ramah keluarga.</p>
+                </div>
+
+                <!-- 4. Sofa Elegan -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
+                    <img src="galeri-sofa.jpeg" alt="Ruang Tunggu Nyaman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/galeri-sofa.jpeg'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-cyan-300"><i class="fa-solid fa-couch mr-1"></i> Ruang Tunggu Utama</span>
+                        <h4 class="text-sm font-semibold mt-0.5">Suasana Nyaman Tanpa Cemas</h4>
+                    </div>
+                </div>
+
+                <!-- 5. Kids Corner -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
+                    <img src="galeri-kids.jpeg" alt="Area Bermain Anak Kids Corner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/galeri-kids.jpeg'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-cyan-300"><i class="fa-solid fa-child-reaching mr-1"></i> Kids Corner</span>
+                        <h4 class="text-sm font-semibold mt-0.5">Ramah Anak & Keluarga</h4>
+                    </div>
+                </div>
+
+                <!-- 6. Outdoor Area -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72">
+                    <img src="galeri-outdoor.jpeg" alt="Taman Teras Outdoor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/galeri-outdoor.jpeg'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                        <span class="text-xs font-bold text-cyan-300"><i class="fa-solid fa-tree mr-1"></i> Area Outdoor</span>
+                        <h4 class="text-sm font-semibold mt-0.5">Suasana Asri & Rileks</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Jaringan Klinik -->
+    <section id="cabang" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-cyan-600 tracking-widest uppercase">Jaringan Klinik</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Senyum dental selalu di dekat pelanggan</h2>
+                <p class="text-slate-600 text-sm mt-2">Temukan lokasi klinik terdekat Anda dan klik tombol untuk petunjuk arah atau reservasi langsung.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1. Concordia -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="concordia-neonbox-terbaru.jpeg" alt="Concordia" class="w-full h-full object-cover" onerror="this.src='concordia-neonbox-terbaru.jpg'">
+                            <span class="absolute top-3 left-3 bg-cyan-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Kota Wisata</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-slate-900">1. Senyum Dental Concordia</h3>
+                            <p class="text-xs text-slate-600 mt-2"><i class="fa-solid fa-location-dot text-cyan-600 mr-1.5"></i> Ruko Concordia Blok SRB No. 18, Kota Wisata</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://maps.google.com/?q=Senyum+Dental+Concordia" target="_blank" class="text-xs font-bold text-slate-700 hover:text-cyan-600"><i class="fa-solid fa-map-location-dot mr-1"></i> Maps</a>
+                        <a href="https://wa.me/6281297131640?text=Halo%20Admin%20Senyum%20Dental%20Concordia,%20saya%20ingin%20reservasi" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-lg"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 2. Boulevard -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="1amsterdamdepan.jpg" alt="Amsterdam Boulevard" class="w-full h-full object-cover" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/1amsterdamdepan.jpg'">
+                            <span class="absolute top-3 left-3 bg-cyan-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Kota Wisata</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-slate-900">2. Senyum Dental Boulevard</h3>
+                            <p class="text-xs text-slate-600 mt-2"><i class="fa-solid fa-location-dot text-cyan-600 mr-1.5"></i> Jl. Pesona Amsterdam Raya No.8 Blok i1</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://maps.google.com/?q=Senyum+Dental+Boulevard" target="_blank" class="text-xs font-bold text-slate-700 hover:text-cyan-600"><i class="fa-solid fa-map-location-dot mr-1"></i> Maps</a>
+                        <a href="https://wa.me/6281297131604?text=Halo%20Admin%20Senyum%20Dental%20Boulevard,%20saya%20ingin%20reservasi" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-lg"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 3. Citragran -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="3CITRAGRANDEPAN.JPG" alt="CitraGran" class="w-full h-full object-cover" onerror="this.src='3CITRAGRANDEPAN.jpg'">
+                            <span class="absolute top-3 left-3 bg-cyan-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">CitraGran</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-slate-900">3. Senyum Dental Citragran</h3>
+                            <p class="text-xs text-slate-600 mt-2"><i class="fa-solid fa-location-dot text-cyan-600 mr-1.5"></i> The Meadows Boulevard, Blok L No. 16</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://maps.google.com/?q=Senyum+Dental+CitraGran" target="_blank" class="text-xs font-bold text-slate-700 hover:text-cyan-600"><i class="fa-solid fa-map-location-dot mr-1"></i> Maps</a>
+                        <a href="https://wa.me/6281314629790?text=Halo%20Admin%20Senyum%20Dental%20Citragran,%20saya%20ingin%20reservasi" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-lg"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 4. Legenda -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="legenda-wisata-depan.jpeg" alt="Legenda Wisata" class="w-full h-full object-cover" onerror="this.src='legenda-wisata-depan.jpg'">
+                            <span class="absolute top-3 left-3 bg-cyan-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Legenda Wisata</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-slate-900">4. Senyum Dental Legenda</h3>
+                            <p class="text-xs text-slate-600 mt-2"><i class="fa-solid fa-location-dot text-cyan-600 mr-1.5"></i> Ruko Acropolis Blok C9 No. 7</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://maps.google.com/?q=Senyum+Dental+Legenda+Wisata" target="_blank" class="text-xs font-bold text-slate-700 hover:text-cyan-600"><i class="fa-solid fa-map-location-dot mr-1"></i> Maps</a>
+                        <a href="https://wa.me/628138896913?text=Halo%20Admin%20Senyum%20Dental%20Legenda,%20saya%20ingin%20reservasi" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-lg"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 5. Country -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="country-ruang-tunggu.jpeg" alt="Cibubur Country" class="w-full h-full object-cover" onerror="this.src='country-ruang-tunggu.jpg'">
+                            <span class="absolute top-3 left-3 bg-cyan-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Cibubur Country</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-slate-900">5. Senyum Dental Country</h3>
+                            <p class="text-xs text-slate-600 mt-2"><i class="fa-solid fa-location-dot text-cyan-600 mr-1.5"></i> Jl. Cibubur Country Boulevard, RBOG No. 6</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://maps.google.com/?q=Senyum+Dental+Cibubur+Country" target="_blank" class="text-xs font-bold text-slate-700 hover:text-cyan-600"><i class="fa-solid fa-map-location-dot mr-1"></i> Maps</a>
+                        <a href="https://wa.me/6281281826781?text=Halo%20Admin%20Senyum%20Dental%20Country,%20saya%20ingin%20reservasi" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-lg"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 6. Estetika Dental ( Esdent ) -->
+                <div class="border-2 border-cyan-500 rounded-2xl overflow-hidden bg-white flex flex-col justify-between shadow-sm relative">
+                    <span class="absolute top-3 right-3 bg-teal-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase z-10">Cabang Baru</span>
+                    <div>
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="estetika-dental.jpeg" alt="Estetika Dental" class="w-full h-full object-cover" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/estetika-dental.jpeg'">
+                            <span class="absolute top-3 left-3 bg-cyan-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Kota Wisata</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-slate-900">6. Estetika Dental ( Esdent )</h3>
+                            <p class="text-xs text-slate-600 mt-2"><i class="fa-solid fa-location-dot text-cyan-600 mr-1.5"></i> Kota Wisata, Cibubur</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-cyan-200 flex items-center justify-between">
+                        <a href="https://share.google/fROWCwpkSmosuhY86" target="_blank" class="text-xs font-bold text-slate-700 hover:text-cyan-600"><i class="fa-solid fa-map-location-dot mr-1"></i> Maps</a>
+                        <a href="https://wa.me/6282298821415?text=Halo%20Admin%20Estetika%20Dental,%20saya%20ingin%20reservasi" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-lg"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- 7. Sahabat Dental ( Sadent ) -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden bg-white flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="h-48 relative overflow-hidden">
+                            <img src="sahabat-dental-ruangan.jpeg" alt="Sahabat Dental" class="w-full h-full object-cover" onerror="this.src='https://raw.githubusercontent.com/radikbud/senyum/main/sahabat-dental-ruangan.jpeg'">
+                            <span class="absolute top-3 left-3 bg-cyan-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Cibubur</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-slate-900">7. Sahabat Dental ( Sadent )</h3>
+                            <p class="text-xs text-slate-600 mt-2"><i class="fa-solid fa-location-dot text-cyan-600 mr-1.5"></i> Kawasan Cibubur</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://maps.google.com/?q=Sahabat+Dental" target="_blank" class="text-xs font-bold text-slate-700 hover:text-cyan-600"><i class="fa-solid fa-map-location-dot mr-1"></i> Maps</a>
+                        <a href="https://wa.me/6282213162085?text=Halo%20Admin%20Sahabat%20Dental,%20saya%20ingin%20reservasi" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-lg"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- LOKASI & PETA MAPS -->
-        <section class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div class="space-y-4">
-                    <div class="inline-flex items-center gap-2 bg-teal-500/10 text-teal-400 text-xs font-bold px-3 py-1 rounded-full">
-                        <i class="fa-solid fa-map-location-dot"></i> LOKASI KAMI
-                    </div>
-                    <h2 class="text-2xl font-black font-heading text-white">Senyum Dental Legenda Wisata</h2>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Kunjungi praktik dokter gigi kami untuk perawatan gigi terbaik Anda dan keluarga. Melayani pemeriksaan rutin hingga penanganan spesialis.
-                    </p>
-                    <div class="space-y-2 text-xs text-slate-400">
-                        <p class="flex items-center gap-2"><i class="fa-solid fa-clock text-teal-400"></i> Buka Setiap Hari: 09.00 - 20.00 WIB</p>
-                        <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-teal-400"></i> Hotline WhatsApp: 0812-8383-2257</p>
-                    </div>
-                </div>
-                
-                <!-- Google Maps Embed -->
-                <div class="h-72 rounded-2xl overflow-hidden border border-slate-700 shadow-inner">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.526279155986!2d106.9535!3d-6.3872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjMnMTQuMCJTIDEwNsKwNTcnMTIuNiJF!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+            <div>
+                <span class="text-xl font-extrabold tracking-tight">SENYUM <span class="text-cyan-400">Dental</span></span>
+                <p class="text-xs text-slate-400 mt-1">Praktek Dokter Gigi - Umum & Spesialis melayani dengan sepenuh hati.</p>
             </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-8 text-center text-xs text-slate-500 mt-12">
-        <div class="max-w-7xl mx-auto px-4 space-y-2">
-            <p class="font-bold text-slate-300">SENYUM Dental - Praktik Dokter Gigi Umum & Spesialis</p>
-            <p class="text-[10px] text-slate-600">&copy; 2026 Senyum Dental Indonesia. All Rights Reserved.</p>
+            <p class="text-xs text-slate-500">&copy; 2026 Senyum Dental Indonesia. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC ANTI-DEAD-BUTTON -->
+    <!-- SCRIPT JAVASCRIPT DINAMIS & ANTI-DEAD-BUTTON -->
     <script>
-        function sendBookingToWhatsApp(event) {
+        function handleBooking(event) {
             if (event) event.preventDefault();
 
-            const branchNumbers = {
-                'Senyum Dental Legenda Wisata': '6281283832257',
-                'Senyum Dental Cibubur': '6281283832257',
-                'Senyum Dental Citragran': '6281283832257'
-            };
+            const branchSelect = document.getElementById('book-branch').value;
+            const service = document.getElementById('book-service').value;
+            const date = document.getElementById('book-date').value;
+            const time = document.getElementById('book-time').value;
 
-            const branchEl = document.getElementById('branch-select');
-            const serviceEl = document.getElementById('service-select');
-            const dateEl = document.getElementById('booking-date');
-            const timeEl = document.getElementById('booking-time');
+            if (!branchSelect) {
+                alert('Silakan pilih cabang klinik terlebih dahulu.');
+                return;
+            }
 
-            const branch = branchEl ? branchEl.value : 'Senyum Dental Legenda Wisata';
-            const service = serviceEl ? serviceEl.value : 'Pemeriksaan & Konsultasi Gigi';
-            const date = dateEl ? dateEl.value : '';
-            const time = timeEl ? timeEl.value : '';
+            // Pecah string data dari value option (Nama Cabang|Nomor WA|Salam)
+            const parts = branchSelect.split('|');
+            const branchName = parts[0];
+            const phoneNumber = parts[1];
+            const greeting = parts[2];
 
-            const targetPhone = branchNumbers[branch] || '6281283832257';
+            // Susun pesan WhatsApp
+            const message = `${greeting},\n\n` +
+                            `Saya ingin melakukan reservasi online:\n` +
+                            `• Cabang: ${branchName}\n` +
+                            `• Perawatan: ${service}\n` +
+                            `• Tanggal: ${date}\n` +
+                            `• Waktu: ${time}\n\n` +
+                            `Mohon konfirmasi ketersediaannya. Terima kasih!`;
 
-            const message = `Halo Admin ${branch},\n` +
-                            `Saya ingin membuat janji reservasi online:\n\n` +
-                            `• Cabang: ${branch}\n` +
-                            `• Layanan: ${service}\n` +
-                            `• Tanggal Kunjungan: ${date}\n` +
-                            `• Jam Sesi: ${time}\n\n` +
-                            `Mohon konfirmasi ketersediaan jadwal dokter. Terima kasih!`;
+            // URL Universal WhatsApp yang dijamin tembus di HP, Tablet, dan iPad manapun tanpa Dead Button
+            const waUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
-            const waUrl = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodeURIComponent(message)}`;
-
+            // Eksekusi langsung buka WhatsApp
             window.location.href = waUrl;
         }
 
+        // Set otomatis tanggal minimal hari ini pada input tanggal
         window.onload = function() {
             const today = new Date().toISOString().split('T')[0];
-            const dateInput = document.getElementById('booking-date');
-            if(dateInput) {
+            const dateInput = document.getElementById('book-date');
+            if (dateInput) {
                 dateInput.value = today;
                 dateInput.min = today;
             }
