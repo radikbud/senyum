@@ -121,7 +121,7 @@
             <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200">
                 <div class="text-center max-w-xl mx-auto mb-8">
                     <span class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-700 uppercase bg-cyan-50 px-3 py-1 rounded-full border border-cyan-200">
-                        <i class="fa-solid fa-bolt"></i> Booking Tanpa Ribet (Anti-Dead-Button)
+                        <i class="fa-solid fa-bolt"></i> Booking Tanpa Ribet
                     </span>
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Reservasi Online</h2>
                     <p class="text-slate-600 text-xs sm:text-sm mt-1">Pilih cabang, jenis perawatan, tanggal, dan jam lalu langsung terhubung ke WhatsApp.</p>
@@ -158,6 +158,7 @@
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1"><i class="fa-regular fa-calendar text-cyan-600 mr-1"></i> Rencana Tanggal</label>
+                            <!-- Tanggal diset otomatis hari ini (berjalan di laptop & HP) -->
                             <input type="date" id="book-date" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
                         </div>
                         <div>
@@ -240,7 +241,7 @@
         </div>
     </section>
 
-    <!-- SECTION PUBLIC FIGURE / ARTIS (UKURAN FOTO PAS / IDEAL, URUTAN: MERIAM BELLINA, FABY MARCELIA, LIVY ANDRIANY) -->
+    <!-- SECTION PUBLIC FIGURE / ARTIS -->
     <section id="artis" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -565,7 +566,19 @@
             reviewIndex = (reviewIndex + 1) % reviews.length;
         }
 
+        // Fungsi inisialisasi tanggal otomatis agar jalan di Laptop maupun HP
+        function initDateInput() {
+            const tzOffset = (new Date()).getTimezoneOffset() * 60000;
+            const localISOTime = (new Date(Date.now() - tzOffset)).toISOString().split('T')[0];
+            const dateInput = document.getElementById('book-date');
+            if (dateInput) {
+                dateInput.value = localISOTime;
+                dateInput.min = localISOTime;
+            }
+        }
+
         window.onload = function() {
+            initDateInput();
             setTimeout(showReviewPopup, 3000);
             setInterval(showReviewPopup, 8000);
         };
