@@ -129,46 +129,68 @@
 
                 <form id="booking-form" onsubmit="handleBooking(event)" class="space-y-4">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
+                        
+                        <!-- 1. Custom Dropdown Cabang Klinik (Memakai Angka 1-7) -->
+                        <div class="relative">
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1"><i class="fa-solid fa-hospital text-cyan-600 mr-1"></i> Pilih Cabang Klinik</label>
-                            <select id="book-branch" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
-                                <option value="" disabled selected>-- Pilih Lokasi Cabang --</option>
-                                <option value="Senyum Dental Concordia|6281297131640|Halo Admin Senyum Dental Concordia">1. Senyum Dental Concordia</option>
-                                <option value="Senyum Dental Boulevard|6281297131604|Halo Admin Senyum Dental Boulevard">2. Senyum Dental Boulevard</option>
-                                <option value="Senyum Dental Citragran|6281314629790|Halo Admin Senyum Dental Citragran">3. Senyum Dental Citragran</option>
-                                <option value="Senyum Dental Legenda|628138896913|Halo Admin Senyum Dental Legenda">4. Senyum Dental Legenda</option>
-                                <option value="Senyum Dental Country|6281281826781|Halo Admin Senyum Dental Country">5. Senyum Dental Country</option>
-                                <option value="Estetika Dental ( Esdent )|6282298821415|Halo Admin Estetika Dental">6. Estetika Dental ( Esdent )</option>
-                                <option value="Sahabat Dental ( Sadent )|6282213162085|Halo Admin Sahabat Dental">7. Sahabat Dental ( Sadent )</option>
-                            </select>
+                            <input type="hidden" id="book-branch" value="">
+                            <button type="button" id="btn-branch" onclick="toggleDropdown('dropdown-branch')" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm font-semibold text-slate-800 flex justify-between items-center text-left focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
+                                <span id="label-branch" class="text-slate-400">-- Pilih Lokasi Cabang --</span>
+                                <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+                            </button>
+                            <div id="dropdown-branch" class="hidden absolute left-0 right-0 top-full mt-1 bg-white border border-slate-200 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto py-1">
+                                <div onclick="selectOption('branch', 'Senyum Dental Concordia|6281297131640|Halo Admin Senyum Dental Concordia', '1. Senyum Dental Concordia')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">1. Senyum Dental Concordia</div>
+                                <div onclick="selectOption('branch', 'Senyum Dental Boulevard|6281297131604|Halo Admin Senyum Dental Boulevard', '2. Senyum Dental Boulevard')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">2. Senyum Dental Boulevard</div>
+                                <div onclick="selectOption('branch', 'Senyum Dental Citragran|6281314629790|Halo Admin Senyum Dental Citragran', '3. Senyum Dental Citragran')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">3. Senyum Dental Citragran</div>
+                                <div onclick="selectOption('branch', 'Senyum Dental Legenda|628138896913|Halo Admin Senyum Dental Legenda', '4. Senyum Dental Legenda')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">4. Senyum Dental Legenda</div>
+                                <div onclick="selectOption('branch', 'Senyum Dental Country|6281281826781|Halo Admin Senyum Dental Country', '5. Senyum Dental Country')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">5. Senyum Dental Country</div>
+                                <div onclick="selectOption('branch', 'Estetika Dental ( Esdent )|6282298821415|Halo Admin Estetika Dental', '6. Estetika Dental ( Esdent )')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">6. Estetika Dental ( Esdent )</div>
+                                <div onclick="selectOption('branch', 'Sahabat Dental ( Sadent )|6282213162085|Halo Admin Sahabat Dental', '7. Sahabat Dental ( Sadent )')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer">7. Sahabat Dental ( Sadent )</div>
+                            </div>
                         </div>
-                        <div>
+
+                        <!-- 2. Custom Dropdown Jenis Perawatan -->
+                        <div class="relative">
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1"><i class="fa-solid fa-tooth text-cyan-600 mr-1"></i> Jenis Perawatan</label>
-                            <select id="book-service" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
-                                <option value="Pemeriksaan & Konsultasi Gigi">Pemeriksaan & Konsultasi Gigi</option>
-                                <option value="Scaling / Pembersihan Karang Gigi">Scaling / Pembersihan Karang Gigi</option>
-                                <option value="Tambal Gigi / Estetika">Tambal Gigi / Estetika</option>
-                                <option value="Perawatan Saluran Akar">Perawatan Saluran Akar</option>
-                                <option value="Gigi Tiruan / Gigi Palsu">Gigi Tiruan (Gigi Palsu)</option>
-                                <option value="Cabut Gigi / Bedah Mulut">Cabut Gigi / Bedah Mulut</option>
-                                <option value="Behel / Ortodonti">Pemasangan Behel / Perawatan Rutin</option>
-                                <option value="Bleaching / Pemutihan Gigi">Bleaching (Pemutihan Gigi)</option>
-                                <option value="Perawatan Gigi Anak">Perawatan Gigi Anak</option>
-                            </select>
+                            <input type="hidden" id="book-service" value="Pemeriksaan & Konsultasi Gigi">
+                            <button type="button" id="btn-service" onclick="toggleDropdown('dropdown-service')" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm font-semibold text-slate-800 flex justify-between items-center text-left focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
+                                <span id="label-service">Pemeriksaan & Konsultasi Gigi</span>
+                                <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+                            </button>
+                            <div id="dropdown-service" class="hidden absolute left-0 right-0 top-full mt-1 bg-white border border-slate-200 rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto py-1">
+                                <div onclick="selectOption('service', 'Pemeriksaan & Konsultasi Gigi', 'Pemeriksaan & Konsultasi Gigi')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">Pemeriksaan & Konsultasi Gigi</div>
+                                <div onclick="selectOption('service', 'Scaling / Pembersihan Karang Gigi', 'Scaling / Pembersihan Karang Gigi')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">Scaling / Pembersihan Karang Gigi</div>
+                                <div onclick="selectOption('service', 'Tambal Gigi / Estetika', 'Tambal Gigi / Estetika')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">Tambal Gigi / Estetika</div>
+                                <div onclick="selectOption('service', 'Perawatan Saluran Akar', 'Perawatan Saluran Akar')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">Perawatan Saluran Akar</div>
+                                <div onclick="selectOption('service', 'Gigi Tiruan / Gigi Palsu', 'Gigi Tiruan (Gigi Palsu)')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">Gigi Tiruan (Gigi Palsu)</div>
+                                <div onclick="selectOption('service', 'Cabut Gigi / Bedah Mulut', 'Cabut Gigi / Bedah Mulut')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">Cabut Gigi / Bedah Mulut</div>
+                                <div onclick="selectOption('service', 'Behel / Ortodonti', 'Pemasangan Behel / Perawatan Rutin')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">Pemasangan Behel / Perawatan Rutin</div>
+                                <div onclick="selectOption('service', 'Bleaching / Pemutihan Gigi', 'Bleaching (Pemutihan Gigi)')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">Bleaching (Pemutihan Gigi)</div>
+                                <div onclick="selectOption('service', 'Perawatan Gigi Anak', 'Perawatan Gigi Anak')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer">Perawatan Gigi Anak</div>
+                            </div>
                         </div>
+
+                        <!-- 3. Tanggal (Otomatis Terisi Hari Ini di HP & Laptop) -->
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1"><i class="fa-regular fa-calendar text-cyan-600 mr-1"></i> Rencana Tanggal</label>
-                            <!-- Tanggal diset otomatis hari ini (berjalan di laptop & HP) -->
                             <input type="date" id="book-date" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
                         </div>
-                        <div>
+
+                        <!-- 4. Custom Dropdown Jam Kunjungan -->
+                        <div class="relative">
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1"><i class="fa-regular fa-clock text-cyan-600 mr-1"></i> Jam Kunjungan</label>
-                            <select id="book-time" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
-                                <option value="Pagi (09.00 - 12.00 WIB)">Sesi Pagi (09.00 - 12.00 WIB)</option>
-                                <option value="Siang (13.00 - 16.00 WIB)">Sesi Siang (13.00 - 16.00 WIB)</option>
-                                <option value="Sore / Malam (16.00 - 20.00 WIB)">Sesi Sore / Malam (16.00 - 20.00 WIB)</option>
-                            </select>
+                            <input type="hidden" id="book-time" value="Pagi (09.00 - 12.00 WIB)">
+                            <button type="button" id="btn-time" onclick="toggleDropdown('dropdown-time')" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm font-semibold text-slate-800 flex justify-between items-center text-left focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600">
+                                <span id="label-time">Sesi Pagi (09.00 - 12.00 WIB)</span>
+                                <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+                            </button>
+                            <div id="dropdown-time" class="hidden absolute left-0 right-0 top-full mt-1 bg-white border border-slate-200 rounded-xl shadow-2xl z-50 py-1">
+                                <div onclick="selectOption('time', 'Pagi (09.00 - 12.00 WIB)', 'Sesi Pagi (09.00 - 12.00 WIB)')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">Sesi Pagi (09.00 - 12.00 WIB)</div>
+                                <div onclick="selectOption('time', 'Siang (13.00 - 16.00 WIB)', 'Sesi Siang (13.00 - 16.00 WIB)')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer border-b border-slate-100">Sesi Siang (13.00 - 16.00 WIB)</div>
+                                <div onclick="selectOption('time', 'Sore / Malam (16.00 - 20.00 WIB)', 'Sesi Sore / Malam (16.00 - 20.00 WIB)')" class="px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-cyan-50 hover:text-cyan-700 cursor-pointer">Sesi Sore / Malam (16.00 - 20.00 WIB)</div>
+                            </div>
                         </div>
+
                     </div>
                     <div class="pt-3">
                         <button type="submit" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold text-sm py-4 px-6 rounded-xl shadow-lg shadow-cyan-600/30 transition-all flex items-center justify-center gap-2">
@@ -433,7 +455,7 @@
                     </div>
                 </div>
 
-                <!-- 8. Kotak Kritik & Saran (Di sebelah Sahabat Dental) -->
+                <!-- 8. Kotak Kritik & Saran -->
                 <div class="border border-cyan-300 rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-950 to-slate-900 text-white flex flex-col justify-between shadow-lg p-6">
                     <div>
                         <div class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 uppercase bg-cyan-900/60 px-2.5 py-1 rounded-full border border-cyan-500/30 mb-4">
@@ -451,7 +473,7 @@
                     </div>
                 </div>
 
-                <!-- 9. Kotak Instagram @senyumdental (Di sebelah Kotak Kritik & Saran) -->
+                <!-- 9. Kotak Instagram @senyumdental -->
                 <div class="border border-pink-500/30 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 text-white flex flex-col justify-between shadow-lg p-6">
                     <div>
                         <div class="inline-flex items-center gap-1.5 text-xs font-bold text-pink-300 uppercase bg-pink-950/60 px-2.5 py-1 rounded-full border border-pink-500/30 mb-4">
@@ -484,7 +506,7 @@
         </div>
     </footer>
 
-    <!-- POP-UP REVIEW BINTANG 5 DINAMIS (DILETAKKAN DI PALING BAWAH HALAMAN) -->
+    <!-- POP-UP REVIEW BINTANG 5 DINAMIS -->
     <div id="review-popup" class="fixed bottom-5 left-5 z-50 bg-white border border-slate-200 shadow-2xl rounded-2xl p-4 max-w-xs flex items-center gap-3.5 transition-all duration-700 opacity-0 translate-y-10 pointer-events-none">
         <div class="w-10 h-10 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold text-base shrink-0" id="popup-avatar">R</div>
         <div>
@@ -495,8 +517,34 @@
         </div>
     </div>
 
-    <!-- SCRIPT JAVASCRIPT -->
+    <!-- SCRIPT JAVASCRIPT LOGIKA KONTROL HALAMAN -->
     <script>
+        // Logika Pengontrol Custom Dropdown UI (Mengeliminasi Modal HP "Selesai")
+        function toggleDropdown(id) {
+            const dropdowns = ['dropdown-branch', 'dropdown-service', 'dropdown-time'];
+            dropdowns.forEach(d => {
+                if (d !== id) document.getElementById(d).classList.add('hidden');
+            });
+            document.getElementById(id).classList.toggle('hidden');
+        }
+
+        function selectOption(type, value, displayLabel) {
+            document.getElementById('book-' + type).value = value;
+            const labelElem = document.getElementById('label-' + type);
+            labelElem.textContent = displayLabel;
+            labelElem.classList.remove('text-slate-400');
+            labelElem.classList.add('text-slate-800');
+            document.getElementById('dropdown-' + type).classList.add('hidden');
+        }
+
+        // Menutup dropdown otomatis jika pengguna mengklik area luar formulir
+        window.addEventListener('click', function(e) {
+            if (!e.target.closest('#reservasi')) {
+                const dropdowns = ['dropdown-branch', 'dropdown-service', 'dropdown-time'];
+                dropdowns.forEach(d => document.getElementById(d).classList.add('hidden'));
+            }
+        });
+
         function handleBooking(event) {
             if (event) event.preventDefault();
 
@@ -566,10 +614,14 @@
             reviewIndex = (reviewIndex + 1) % reviews.length;
         }
 
-        // Fungsi inisialisasi tanggal otomatis agar jalan di Laptop maupun HP
+        // Mengatur tanggal otomatis berjalan presisi di HP & Laptop
         function initDateInput() {
-            const tzOffset = (new Date()).getTimezoneOffset() * 60000;
-            const localISOTime = (new Date(Date.now() - tzOffset)).toISOString().split('T')[0];
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const localISOTime = `${year}-${month}-${day}`;
+            
             const dateInput = document.getElementById('book-date');
             if (dateInput) {
                 dateInput.value = localISOTime;
